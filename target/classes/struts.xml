@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.xwork.chaining.copyMessages" value="false"/>
+	
+	<package name="actions" namespace="/" extends="struts-default">
+		<action name="editEmp" class="com.ibm.actions.EditEmployeeAction"
+		method="update">
+			<result name="SUCCESS">employeeTablePage.jsp</result>
+			<result name="ERROR">employeeTablePage.jsp</result>
+		</action>
+		<action name="login" class="com.ibm.actions.LoginAction" method="login">
+			<result name="success">employeeTablePage.jsp</result>
+			<result name="error">loginPage.jsp</result>
+		</action>
+		<action name="logout" class="com.ibm.actions.LogoutAction"
+		method="logoutUser">
+			<result name="success">loginPage.jsp</result>
+			<result name="error">loginPage.jsp</result>
+		</action>
+	</package>
+</struts>
